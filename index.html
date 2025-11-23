@@ -2,332 +2,256 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Andreas Laskaris - CV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreas Laskaris – Full-Stack Engineer</title>
     <style>
         :root {
-            --primary: #1b4f72;
-            --secondary: #5dade2;
-            --background: #f3f6fa;
-            --light: #eaf1f8;
-            --text: #222;
-            --muted: #555;
+            --p: #1b4f72;
+            --s: #5dade2;
+            --bg: #f8fafc;
+            --light: #eef3f7;
+            --t: #1e293b;
         }
 
         body {
-            font-family: "Segoe UI", Calibri, sans-serif;
-            background: var(--background);
-            color: var(--text);
+            font-family: "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--t);
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            line-height: 1.55;
         }
 
-        .cv-wrapper {
-            display: grid;
-            flex-wrap: nowrap;
-            grid-template-columns: 300px 1fr;
+        .cv {
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 0 auto;
             background: white;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .12);
             border-radius: 12px;
             overflow: hidden;
+            display: grid;
+            grid-template-columns: 330px 1fr;
         }
 
-        /* LEFT COLUMN */
         .left {
-            background: var(--light);
-            padding: 35px 25px;
-            border-right: 1px solid #d1dae3;
+            background: linear-gradient(180deg, #eef3f7 0%, #dfe8f1 100%);
+            padding: 40px 32px;
         }
 
-        .photo {
-            text-align: center;
-            margin-bottom: 25px;
+        .right {
+            padding: 45px 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: var(--p);
+        }
+
+        h2 {
+            font-size: 1.25em;
+            font-weight: 500;
+            color: #475569;
+            margin: 6px 0 30px;
+        }
+
+        h3 {
+            font-size: 1.15em;
+            color: var(--p);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 2px solid var(--p);
+            padding-bottom: 5px;
+            margin: 32px 0 16px;
         }
 
         .photo img {
-            width: 130px;
-            height: 130px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--primary);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .left h3 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 4px;
-            margin-bottom: 12px;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .contact p,
-        .profile p {
-            margin: 6px 0;
-            font-size: 0.95em;
-            line-height: 1.5;
+            border: 4px solid var(--p);
+            display: block;
+            margin: 0 auto 28px;
         }
 
         a {
-            color: var(--primary);
+            color: var(--p);
             text-decoration: none;
-            transition: color 0.2s ease;
         }
 
-        a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.96em;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            fill: var(--p);
         }
 
         ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
+            padding-left: 19px;
+            margin: 10px 0;
         }
 
-        ul li::before {
-            content: "• ";
-            color: var(--primary);
-            font-weight: bold;
+        li {
+            margin-bottom: 7px;
         }
 
-        .skills-bar {
-            margin-top: 5px;
-            background: #d8e3ef;
-            height: 7px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        .bar {
-            height: 100%;
-            background: var(--primary);
-            transition: width 0.6s ease;
-        }
-
-        /* RIGHT COLUMN */
-        .right {
-            padding: 40px 45px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        header h1 {
-            color: var(--primary);
-            margin: 0;
-            font-size: 2.1em;
-            letter-spacing: 1px;
-        }
-
-        header h2 {
-            font-weight: 400;
-            color: var(--muted);
-            font-style: italic;
-            margin-top: 6px;
-            font-size: 1.1em;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        section h3 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            display: inline-block;
-            padding-bottom: 4px;
-            margin-bottom: 14px;
-            text-transform: uppercase;
-            font-size: 1.1em;
-            letter-spacing: 0.6px;
-        }
-
-        .entry {
-            margin-bottom: 14px;
-            line-height: 1.5;
-        }
-
-        .entry strong {
-            color: #000;
-            font-size: 1.02em;
-        }
-
-        .entry em {
-            color: var(--muted);
+        .skills {
+            columns: 2;
+            gap: 30px;
             font-size: 0.95em;
         }
 
-        .closing {
-            border-top: 2px solid var(--primary);
-            padding-top: 12px;
-            font-style: italic;
-            text-align: justify;
+        .job {
+            margin-bottom: 28px;
         }
 
-        @media (max-width: 850px) {
-            .cv-wrapper {
+        .date {
+            color: #64748b;
+            font-size: 0.95em;
+        }
+
+        @media (max-width:850px) {
+            .cv {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .left {
-                border-right: none;
-                border-bottom: 1px solid #d1dae3;
+        @media print {
+            body {
+                background: white;
             }
 
-            .photo img {
-                width: 110px;
-                height: 110px;
+            .cv {
+                box-shadow: none;
+                margin: 0;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="cv-wrapper">
-        <!-- LEFT COLUMN -->
+    <div class="cv">
+
+        <!-- LEFT -->
         <div class="left">
-            <div class="photo">
-                <img src="CV image.jpg" alt="Andreas Laskaris Photo" />
+            <div class="photo"><img src="CV image.jpg" alt="Andreas Laskaris"></div>
+
+            <h3>Contact</h3>
+
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.3 22 2 13.7 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.59a1 1 0 01-.24 1.01l-2.2 2.19z" />
+                </svg>
+                +30 698 291 2437
             </div>
 
-            <div class="section profile">
-                <h3>Profile</h3>
-                <p>
-                    Ambitious Electrical and Computer Engineer focused on Full Stack Engineering.
-                    Eager to contribute to impactful, data-driven projects. Currently working as a Full Stack Engineer
-                    at <strong>Altair (Siemens)</strong>. Characterized as a quick learner, detail-oriented, and
-                    collaborative.
-                </p>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm8 7l8-5H4l8 5zm0 2l-8-5v10h16V8l-8 5z" />
+                </svg>
+                <a href="mailto:alaskaris96@gmail.com">alaskaris96@gmail.com</a>
             </div>
 
-            <div class="section contact">
-                <h3>Contact</h3>
-                <p><strong>Tel:</strong> <a href="tel:+306982912437">+30 6982912437</a></p>
-                <p><strong>Email:</strong> <a href="mailto:alaskaris96@gmail.com">alaskaris96@gmail.com</a></p>
-                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/andreas-laskaris-41201a199/"
-                        target="_blank">Andreas Laskaris</a></p>
+            <div class="contact-item">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M4.98 3C3.34 3 2 4.34 2 5.98s1.34 2.98 2.98 2.98A2.98 2.98 0 008 5.98C8 4.34 6.66 3 4.98 3zM2 9h6v12H2V9zm8.5 0h5.14v1.71h.07c.72-1.36 2.48-2.79 5.11-2.79C23.52 7.92 24 11.17 24 15.14V21h-5v-5.14c0-1.23-.02-2.82-1.72-2.82-1.73 0-2 1.35-2 2.74V21h-5V9z" />
+                </svg>
+
+                <a href="https://linkedin.com/in/andreas-laskaris">linkedin.com/in/andreas-laskaris</a>
             </div>
 
-            <div class="section">
-                <h3>Expertise</h3>
-                <p>React.js, Next.js, Typescript </p>
-                <div class="skills-bar">
-                    <div class="bar" style="width:85%"></div>
-                </div>
-                <p>HTML, CSS, JavaScript</p>
-                <div class="skills-bar">
-                    <div class="bar" style="width:90%"></div>
-                </div>
-                <p>Python, Django, Node.js</p>
-                <div class="skills-bar">
-                    <div class="bar" style="width:85%"></div>
-                </div>
-                <p>Docker</p>
-                <div class="skills-bar">
-                    <div class="bar" style="width:70%"></div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Interests</h3>
+            <h3>Core Technologies</h3>
+            <div class="skills">
                 <ul>
-                    <li>Web development (front-end & back-end)</li>
-                    <li>Networking and Databases</li>
-                    <li>Electronics applications</li>
+                    <li>React / Next.js</li>
+                    <li>TypeScript</li>
+                    <li>Node.js</li>
+                    <li>Python (Django)</li>
+                    <li>Plotly & Recharts</li>
+                    <li>WebSockets / Socket.io</li>
+                    <li>Docker & CI/CD</li>
+                    <li>Nightwatch.js (E2E)</li>
+                    <li>Storybook</li>
+                    <li>PostgreSQL / MongoDB / Arango DB</li>
                 </ul>
             </div>
 
-            <div class="section">
-                <h3>Hobbies</h3>
-                <ul>
-                    <li>Agriculture production and management</li>
-                    <li>Blockchain technology enthusiast</li>
-                    <li>Gymnastics and Physical Education</li>
-                    <li>Geopolitics</li>
-                </ul>
-            </div>
+            <h3>Currently Learning</h3>
+            <ul>
+                <li>Kubernetes & advanced Docker orchestration</li>
+                <li>Cybersecurity</li>
+                <li>AI - Computer Vision</li>
+                <li>Web 3</li>
+            </ul>
         </div>
-
-        <!-- RIGHT COLUMN -->
+        <!-- RIGHT -->
         <div class="right">
             <header>
                 <h1>ANDREAS LASKARIS</h1>
-                <h2>Electrical and Computer Engineer — Full Stack Engineer</h2>
+                <h2>Full-Stack Engineer at Altair (ex-Siemens) • React • TypeScript • Python • Node</h2>
             </header>
 
-            <section>
-                <h3>Education</h3>
-                <div class="entry">
-                    <strong>Technical University of Crete</strong><br />
-                    <em>Integrated Masters Degree — 2014–2021</em><br />
-                    Thesis: Software development for transient stability analysis of power electric systems with large
-                    wind penetration.
-                </div>
-                <div class="entry">
-                    <strong>Master of Business Administration (MBA) — Candidate</strong><br />
-                    Currently pursuing an MBA to complement engineering expertise with strategic and managerial insight.
-                </div>
-            </section>
+            <h3>Professional Experience</h3>
 
-            <section>
-                <h3>Experience</h3>
-                <div class="entry">
-                    <strong>Full Stack Engineer</strong> — <em>Altair (Siemens) — DEC.2022–Present</em><br />
-                    Developing scalable full-stack web applications and data-driven systems within Altair’s engineering
-                    software ecosystem.
-                </div>
-                <div class="entry">
-                    <strong>Research Assistant</strong> — <em>CERTH - ITI — 2022-DEC.2022</em><br />
-                    Full stack web development. Developed PayPal and Bank SDK integration for the SHOW marketplace.
-                </div>
-                <div class="entry">
-                    <strong>Army Database Management</strong> — <em>Secretary Job — 2021 (Fixed-term)</em><br />
-                    Sensitive information filing and management in the army’s database system.
-                </div>
-                <div class="entry">
-                    <strong>Internship at Technical Studies Office</strong> — <em>Voriazidis Konstantinos — 2020
-                        (Fixed-term)</em><br />
-                    Technical studies for construction of buildings, store permits, energy saving programs, natural gas
-                    installations, and thermal efficiency analysis.
-                </div>
-            </section>
-
-            <section>
-                <h3>Projects</h3>
+            <div class="job">
+                <strong>Full-Stack Engineer</strong><br>
+                Siemens Digital Industries Software (Altair Engineering) – <span class="date">Dec 2022 – Present</span>
                 <ul>
-                    <li>Freelance websites</li>
-                    <li>Shared automation operating models for worldwide adoption (SHOW European Union project)</li>
-                    <li>Anti-Drone project (command center creation + communication with radars and drone destruction
-                        systems)</li>
-                    <li>LAN servers using Django for secure information exchange for local offices</li>
-                    <li>Agriculture management & investments (Peach & Kiwi trees, watering network installation +
-                        sensors)</li>
-                    <li>Electronics projects (RF transmitters, Sound amplifiers, etc.)</li>
-                    <li>Microprocessor Design with VHDL (Xilinx software and Spartan 3 FPGA). Fully running chip with
-                        MIPS assembly</li>
-                    <li>Blockchain cryptocurrency creation on Solana ($Stinger on Sol)</li>
+                    <li>Designed and shipped a dynamic drag-and-drop dashboard framework supporting arbitrary widgets
+                        (charts, tables, 3rd-party WebGL viewers) via JSON configuration</li>
+                    <li>Built Jira-like project management UI with tasks, phases, milestones, real-time Gantt charts and
+                        Kanban boards (React + TypeScript + WebSockets)</li>
+                    <li>Developed reusable component library in Storybook for consistent UI across multiple internal
+                        engineering tools</li>
+                    <li>Implemented end-to-end testing suite with Nightwatch.js, achieving 90%+ automated coverage of
+                        critical user flows</li>
+                    <li>Created meta-UI system that auto-generates dashboards from JSON schemas – cut new tool delivery
+                        time by 60–70%</li>
+                    <li>Built backend APIs and real-time services using Python (Flask alternative) and Node.js (REST +
+                        WebSocket
+                        events)</li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="closing">
-                <p>
-                    Thank you for your time. I look forward to discussing my experience and passion for all aspects of
-                    Engineering and Full Stack development.
-                </p>
-            </section>
+            <div class="job">
+                <strong>Full-Stack Research Assistant</strong><br>
+                CERTH / ITI – <span class="date">Jan 2022 – Dec 2022</span>
+                <ul>
+                    <li>Developed full-stack marketplace for EU SHOW project (React + Django) with PayPal & bank SDK
+                        integrations</li>
+                    <li>Deployed production system serving 2,000+ users across Europe</li>
+                </ul>
+            </div>
+
+            <h3>Education</h3>
+            <strong>Integrated Master’s in Electrical & Computer Engineering</strong><br>
+            Technical University of Crete – 2014–2021<br>
+            Thesis: Transient stability analysis of power systems with high wind penetration<br><br>
+
+            <strong>MBA Candidate (part-time)</strong> – Expected 2026
+
+            <h3>Personal Projects</h3>
+            <ul>
+                <li>E-commerce platform (Next.js 14 + TypeScript + Stripe + Tailwind) – in active development, live demo
+                </li>
+                <li>AI Fruit Sorter – Real-time computer-vision system using OpenCV: detects size, color, defects and
+                    sorts fruit on conveyor belt (live demo)</li>
+                <li>Portfolio of responsive freelance websites (React + Firebase/VPS)</li>
+                <li>Internal Anti-Drone command-center prototype (company project, concept proven CERTH)</li>
+            </ul>
+
         </div>
     </div>
 </body>
