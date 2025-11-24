@@ -15,7 +15,7 @@ const generatePDF = async () => {
         format: "A4",
         printBackground: true,
         preferCSSPageSize: true,
-        scale: 0.77,
+        scale: 0.73,
     });
 
     await browser.close();
