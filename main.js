@@ -10,12 +10,14 @@ const generatePDF = async () => {
         waitUntil: "networkidle0",
     });
 
+    await page.emulateMediaType('screen');
+
     await page.pdf({
         path: "cv.pdf",
         format: "A4",
         printBackground: true,
         preferCSSPageSize: true,
-        scale: 0.73,
+        scale: 0.72,
     });
 
     await browser.close();
